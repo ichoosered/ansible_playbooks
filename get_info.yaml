@@ -1,0 +1,12 @@
+- name: My playbook
+  hosts: all
+  vars:
+          ansible_python_interpreter: /usr/bin/python3
+  tasks:
+     - name: Test get info
+       shell: "df -h"
+       register: results
+       args:
+               warn: false
+     - debug:
+             var: "results.stdout_lines"
